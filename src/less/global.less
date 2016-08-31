@@ -22,11 +22,42 @@ input {
 .mt20 {
     margin-top: 20px;
 }
-.w750{
+.mt40 {
+    margin-top: 40px;
+}
+.w750 {
     width: 750px;
-    margin:0 auto;
+    margin: 0 auto;
+}
+
+.w150 {
+    width: 150px;
+}
+.w805{
+    width: 805px;
 }
 .container {
     width: 980px;
     margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    overflow: hidden;
+    zoom: 1;
+    height: 0;
+    display: block;
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+    }
 }
