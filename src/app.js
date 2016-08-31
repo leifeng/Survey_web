@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import Main from './pages/main';
 import Index from './pages/index';
-
+import Detail from './pages/detail'
 class Page1 extends Component {
     render() {
         return <div>Page1</div>
@@ -23,8 +23,7 @@ const App = () => {
         <Router history={browserHistory}>
             <Route  path="/" component={Main}>
                 <IndexRoute component={Index}/>
-                <Route path="page1" component={Page1}/>
-                <Route path="page2" component={Page2}/>
+                <Route path="detail" component={Detail}/>
             </Route>
             <Route path="*" component={NoMatch}/>
         </Router>

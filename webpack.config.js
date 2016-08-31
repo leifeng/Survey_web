@@ -4,7 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     devtool: false,
     entry: {
-        chargepile: './src/index.js',
+        app: './src/entry.js',
         vendor: ['react', 'react-dom', 'react-router']
     },
     output: {
@@ -37,6 +37,9 @@ module.exports = {
             test: /\.js$/,
             loaders: ['babel'],
             exclude: /node_modules/
-        }]
+        }, {
+                test: /\.less/,
+                loader: "style!css!less"
+            }]
     }
 };
