@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {createForm} from'rc-form';
-import {Radio, CheckBox, QA} from '../components/form';
-
+import {Radio, CheckBox, QA, FillBlank} from '../components/form';
+import Info from '../components/info'
 const data = [
     {
         id: 1, type: 'radio', title: 'xxxxxxxx?', list: [
@@ -28,7 +28,13 @@ const data = [
         ]
     },
     {
-        id: 4, type: 'QA', title: 'adfasdfs()asdfsdf?'
+        id: 4, type: 'QA', title: 'adfasdfs@_@asdfsdf?'
+    },
+    {
+        id: 5, type: 'QA', title: '长亭外，古道边，_?'
+    },
+    {
+        id: 6, type: 'fb', title: '天上有多少星星?'
     }
 ]
 
@@ -43,7 +49,11 @@ class Detail extends Component {
     onSubmit(e) {
         e.preventDefault();
         this.props.form.validateFields((error, value) => {
-            console.log(error, value);
+            if (!error) {
+                console.log('ok', value);
+            } else {
+                console.log('error', error, value);
+            }
         });
     }
 
@@ -53,7 +63,9 @@ class Detail extends Component {
             <div className="container">
                 <div className="questions">
                     <h1 className="title">大标题123123123</h1>
-                    <div className="desc">分类: <a>分类1</a> | 作者：<a>李先森</a> | 参与人数：<span>8888</span></div>
+                    <div className="info">
+                        <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
+                    </div>
                     <form onSubmit={this.onSubmit} className="q-list">
                         {data.map((item, index) => {
                             switch (item.type) {
@@ -63,6 +75,8 @@ class Detail extends Component {
                                     return <CheckBox key={index} form={form} i={index + 1} {...item} />
                                 case 'QA':
                                     return <QA key={index} form={form} i={index + 1} {...item} />
+                                case 'fb':
+                                    return <FillBlank key={index} form={form} i={index + 1} {...item} />
                                 default:
                                     return null;
                             }

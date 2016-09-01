@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import './index.less';
 class HotKeyWords extends Component {
     render() {
@@ -6,7 +7,7 @@ class HotKeyWords extends Component {
         return (
             <div className="hot-keyWords">
                 热搜词：{data.map((item, index) => {
-                    return <a key={index}>{item}</a>
+                    return <Link to={'/search/key/'+item} key={index}>{item}</Link>
                 }) }
             </div>
         );

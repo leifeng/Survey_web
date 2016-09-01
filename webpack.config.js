@@ -33,13 +33,18 @@ module.exports = {
 
     ],
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loaders: ['babel'],
-            exclude: /node_modules/
-        }, {
+        loaders: [
+            {
+                test: /\.js$/,
+                loaders: ['babel'],
+                exclude: /node_modules/
+            }, {
                 test: /\.less/,
                 loader: "style!css!less"
-            }]
+            }, {
+                test: /\.css/,
+                loader: "style!css"
+            }
+        ]
     }
 };
