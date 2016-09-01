@@ -1,3 +1,5 @@
 import './index.less';
 import Radio from './radio';
-export {Radio};
+import CheckBox from './checkbox';
+import QA from './QA';
+export {Radio,CheckBox,QA};

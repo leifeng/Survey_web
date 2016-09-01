@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router'
 import './index.less'
 class TopHeader extends Component {
     render() {
@@ -7,7 +8,7 @@ class TopHeader extends Component {
                 <div className="container">
                     <div className="logo">问卷调查</div>
                     <div className="top-header-menu">
-                        <a>首页</a>
+                        <Link to="/">首页</Link>
                         <a>热门问卷</a>
                         <a>菜单1</a>
                     </div>

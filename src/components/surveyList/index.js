@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import './index.less';
 class SurveyList extends Component {
     render() {
         return (
             <div className="survey-list">
                 <div className="item">
-                    <h3><a>标题标题标题标题标题标题标题</a></h3>
+                    <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
                     <div className="info">
                         分类：<a>分类1</a>&nbsp; &nbsp; |&nbsp; &nbsp; 作者：<a>张先森</a>&nbsp; &nbsp; |&nbsp; &nbsp; 参与人数：<span>999</span>
                     </div>
