@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SearchBar from '../components/searchBar';
 import HotKeyWords from '../components/hotKeyWords';
 import LeftSidebar from '../components/leftSidebar';
-import SurveyList from '../components/surveyList'
+import SurveyList from '../components/surveyList';
 class Index extends Component {
     constructor() {
         super();
