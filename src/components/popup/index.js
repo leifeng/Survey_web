@@ -10,7 +10,7 @@ class Popup extends Component {
         return (
             <div className="popup" style={{ display: display }}  onClick={this.onClose}>
                 <div className="popup-bg"></div>
-                <div className="popup-center" style={{ height: height }}>
+                <div className="popup-center">
                     <div className="popup-main" style={{ width: width }}>
                         <div className="popup-title">{title}<a className="popup-close">x</a></div>
                         <div className="popup-body">
@@ -40,7 +40,6 @@ Popup.defaultProps = {
     title: '',
     display: '',
     width: 500,
-    height: 300,
     onCloseCb: null
 }
 export default Popup;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import Main from './pages/main';
+import UserCenter from './pages/ucenter/userCenter';
 const Index = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('./pages/index').default);
@@ -14,6 +15,12 @@ const Detail = (location, cb) => {
 const Search = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('./pages/search').default);
+    })
+};
+
+const SurveyManage = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('./pages/ucenter/surveyManage').default);
     })
 };
 class Page1 extends Component {
@@ -43,6 +50,11 @@ const App = () => {
                     <Route path="category(/:category)" getComponent={Search}/>
                 </Route>
             </Route>
+            <Route path="/ucenter" component={UserCenter}>
+                <IndexRoute getComponent={SurveyManage}/>
+                <Route path="surveyManage" getComponent={SurveyManage}/>
+            </Route>
+
             <Route path="*" component={NoMatch}/>
         </Router>
     )

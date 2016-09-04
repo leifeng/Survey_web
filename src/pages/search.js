@@ -17,7 +17,7 @@ class Search extends Component {
         const {data, total, current} = this.state;
         return (
             <div className="container">
-                <div className="w750">
+                <div className="w750 mt40">
                     <SearchBar/>
                     <HotKeyWords/>
                 </div>

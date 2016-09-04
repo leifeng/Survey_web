@@ -16,8 +16,8 @@ class Index extends Component {
     render() {
         const {data, total, current} = this.state;
         return (
-            <div className="container">
-                <div className="w750">
+            <div className="container clear">
+                <div className="w750 mt40">
                     <SearchBar/>
                     <HotKeyWords/>
                 </div>
