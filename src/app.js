@@ -18,9 +18,9 @@ const Search = (location, cb) => {
     })
 };
 
-const SurveyManage = (location, cb) => {
+const SurveyManageList = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('./pages/ucenter/surveyManage').default);
+        cb(null, require('./pages/ucenter/surveyManageList').default);
     })
 };
 class Page1 extends Component {
@@ -51,8 +51,8 @@ const App = () => {
                 </Route>
             </Route>
             <Route path="/ucenter" component={UserCenter}>
-                <IndexRoute getComponent={SurveyManage}/>
-                <Route path="surveyManage" getComponent={SurveyManage}/>
+                <IndexRoute getComponent={SurveyManageList}/>
+                <Route path="surveyManageList" getComponent={SurveyManageList}/>
             </Route>
 
             <Route path="*" component={NoMatch}/>
