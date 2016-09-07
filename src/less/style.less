@@ -31,7 +31,7 @@
 }
 
 .user-center {
-    .padding{
+    .padding {
         padding: 20px 50px;
     }
     .user-center-header {
@@ -73,6 +73,7 @@
         border-bottom: 1px solid #ebebeb;
         border-top: 1px solid #ebebeb;
     }
+    //列表页
     .survey-manage-list {
         div {
             border-bottom: 1px dashed #d8d8d8;
@@ -148,6 +149,79 @@
                     &:hover {
                         color: #00b3f8
                     }
+                }
+            }
+        }
+    }
+    //编辑页
+    .survey-edit {
+        width: 980px;
+        min-height: 300px;
+        margin: 0 auto;
+        // border: 1px solid #d8d8d8;
+        .question-option {
+            position: fixed;
+            top: 100px;
+            text-align: center;
+            width: 70px;
+            a {
+                display: inline-block;
+                width: 60px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border: 1px solid #d8d8d8;
+                border-radius: 4px;
+                margin: 10px 0;
+                font-size: 14px;
+                color: #666;
+                &:active {
+                    color: #666;
+                    background-color: #d8d8d8;
+                }
+            }
+        }
+        .question-list {
+            margin-left: 130px;
+        }
+        .question-item {
+            border-bottom: 1px dashed #d8d8d8;
+            padding: 15px 0;
+            .title {
+                font-size: 14px;
+                span {
+                    color: #2db7f5;
+                    margin: 0 10px;
+                }
+                .question-del {
+                    &:hover {
+                        color: red;
+                    }
+                }
+                input {
+                    border: 0;
+                    height: 26px;
+                    line-height: 26px;
+                    text-indent: 10px;
+                    width: 300px;
+                    font-size: 14px;
+                    border-bottom: 1px solid #d8d8d8;
+                }
+            }
+            .add-option {
+                padding: 5px 10px;
+                color: #fff;
+                background-color: #2db7f5;
+                &:active {
+                    background-color: #2492c4;
+                }
+            }
+            ul {
+                margin: 10px 0 0 84px;
+                padding: 0;
+                li {
+                    list-style: none;
+                    margin-bottom: 10px;
                 }
             }
         }

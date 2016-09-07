@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute,IndexRedirect} from 'react-router';
 import Main from './pages/main';
 import UserCenter from './pages/ucenter/userCenter';
 const Index = (location, cb) => {
@@ -23,6 +23,11 @@ const SurveyManageList = (location, cb) => {
         cb(null, require('./pages/ucenter/surveyManageList').default);
     })
 };
+const SurveyEdit=(location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('./pages/ucenter/surveyEdit').default);
+    })
+};
 class Page1 extends Component {
     render() {
         return <div>Page1</div>
@@ -43,7 +48,7 @@ const App = () => {
         <Router history={browserHistory}>
             <Route  path="/" component={Main}>
                 <IndexRoute getComponent={Index}/>
-                <Route path="detail" getComponent={Detail}/>
+                <Route path="detail/:id(/:preview)" getComponent={Detail}/>
                 <Route path="search" getComponent={Search}>
                     <Route path="key(/:key)" getComponent={Search}/>
                     <Route path="author(/:author)" getComponent={Search}/>
@@ -51,8 +56,9 @@ const App = () => {
                 </Route>
             </Route>
             <Route path="/ucenter" component={UserCenter}>
-                <IndexRoute getComponent={SurveyManageList}/>
+                <IndexRedirect to="/ucenter/surveyManageList" />
                 <Route path="surveyManageList" getComponent={SurveyManageList}/>
+                <Route path="surveyEdit/:id" getComponent={SurveyEdit}/>
             </Route>
 
             <Route path="*" component={NoMatch}/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {Link,IndexLink} from 'react-router';
 class UserCenter extends Component {
     render() {
         return (
@@ -7,7 +7,7 @@ class UserCenter extends Component {
                 <div className="user-center-header">
                     <span className="title">用户中心</span>
                     <div className="user-center-menu">
-                        <Link to="/ucenter/surveyManageList" activeClassName="active">问卷管理</Link>
+                        <IndexLink to="/ucenter/surveyManageList" activeClassName="active">问卷管理</IndexLink>
                         <Link to="/ucenter/info" activeClassName="active">个人资料</Link>
                     </div>
                     <span className="username">欢迎您, admin<a>退出</a></span>

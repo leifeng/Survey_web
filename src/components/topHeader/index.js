@@ -30,6 +30,7 @@ class TopHeader extends Component {
                         <div className="top-header-menu">
                             <Link to="/">首页</Link>
                             <Link to="/search">热门调查</Link>
+                            <Link to="/ucenter">个人中心</Link>
                         </div>
                         <div className="top-header-inout" onClick={this.onClick}>
                             <a className="login-btn">登录</a>

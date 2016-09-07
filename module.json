@@ -9,7 +9,6 @@
     "headimg": "头像备用",
     "verifyEmail": "邮箱是否验证备用"
 }
-
 //类型表
 {
     "id": "分类id主键",
@@ -30,80 +29,78 @@
     "desc": "描述",
     "clicks": "访问数量", //这个条件来判断是否属于热门调查
     "answers": "参与人数",
+    "createTime": "创建时间",
+    "editTime": "编辑时间",
+    "status": "发布未发布" //1发布 0 未发布
 }
 //问题详情
 {
     "id": "主键",
     "qid": "题id", //外键    
     "questions": [
-    {
-        "id": 1,
-        "type": "radio",
-        "title": "xxxxxxxx?",
-        "list": [
-            {
-                "title": "选项1",
-                "value": 1
-            },
-            {
-                "title": "选项2",
-                "value": 2
-            },
-            {
-                "title": "选项3",
-                "value": 3
-            },
-            {
-                "title": "选项4",
-                "value": 4
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "type": "checkbox",
-        "title": "dfgsdfgdf",
-        "list": [
-            {
-                "title": "选项1",
-                "value": 1
-            },
-            {
-                "title": "选项2",
-                "value": 2
-            },
-            {
-                "title": "选项3",
-                "value": 3
-            },
-            {
-                "title": "选项4",
-                "value": 4
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "type": "QA",
-        "title": "长亭外，古道边，_?"
-    },
-    {
-        "id": 4,
-        "type": "fb",
-        "title": "天上有多少星星?"
-    }
-]
+        {
+            "id": 1,
+            "type": "radio",
+            "title": "xxxxxxxx?",
+            "list": [
+                {
+                    "title": "选项1",
+                    "value": 1
+                },
+                {
+                    "title": "选项2",
+                    "value": 2
+                },
+                {
+                    "title": "选项3",
+                    "value": 3
+                },
+                {
+                    "title": "选项4",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": "checkbox",
+            "title": "dfgsdfgdf",
+            "list": [
+                {
+                    "title": "选项1",
+                    "value": 1
+                },
+                {
+                    "title": "选项2",
+                    "value": 2
+                },
+                {
+                    "title": "选项3",
+                    "value": 3
+                },
+                {
+                    "title": "选项4",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "QA",
+            "title": "长亭外，古道边，_?"
+        }
+    ]
 }
-
-
-
 //解答
 {
     "id": "主键",
     "qid": "题id", //外键   
-    "q1":3,
-    "q2":[1,4],     //db.getCollection(" hehe").find({"q2":{"$in":[1,3]}})
-    "q4":"aaaaaaa",
-    "q5":"adfasdfsdfsdf",
-    "useTime:":"1000" //答题时间
+    "q1": 3,
+    "q2": [
+        1,
+        4
+    ], //db.getCollection(" hehe").find({"q2":{"$in":[1,3]}})
+    "q4": "aaaaaaa",
+    "q5": "adfasdfsdfsdf",
+    "useTime:": "1000" //答题时间
 }

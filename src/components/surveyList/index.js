@@ -20,7 +20,7 @@ class SurveyList extends Component {
                 {data.list.map((item, index) => {
                     return (
                         <div className="item">
-                            <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
+                            <h3><Link to={"/detail"+item.id}>标题标题标题标题标题标题标题</Link></h3>
                             <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
                             <div className="desc">
                                 下面您会看到关于植物蛋白饮品的介绍。请注意这只是产品介绍不是广告。也和现在市场上正在销售的任何植物蛋白饮品无关。在您仔细阅读后，会有一些关于这个产品介绍的问题，请认真回答。谢谢。
@@ -30,7 +30,7 @@ class SurveyList extends Component {
                 }) }
 
                 <div className="item">
-                    <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
+                    <h3><Link to="/detail/1">标题标题标题标题标题标题标题</Link></h3>
                     <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
 
                     <div className="desc">
@@ -38,7 +38,7 @@ class SurveyList extends Component {
                     </div>
                 </div>
                 <div className="item">
-                    <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
+                    <h3><Link to="/detail/2">标题标题标题标题标题标题标题</Link></h3>
                     <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
 
                     <div className="desc">
@@ -46,7 +46,7 @@ class SurveyList extends Component {
                     </div>
                 </div>
                 <div className="item">
-                    <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
+                    <h3><Link to="/detail/3">标题标题标题标题标题标题标题</Link></h3>
                     <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
 
                     <div className="desc">
@@ -54,7 +54,7 @@ class SurveyList extends Component {
                     </div>
                 </div>
                 <div className="item">
-                    <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
+                    <h3><Link to="/detail/4">标题标题标题标题标题标题标题</Link></h3>
                     <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
 
                     <div className="desc">
@@ -62,7 +62,7 @@ class SurveyList extends Component {
                     </div>
                 </div>
                 <div className="item">
-                    <h3><Link to="/detail">标题标题标题标题标题标题标题</Link></h3>
+                    <h3><Link to="/detail/5">标题标题标题标题标题标题标题</Link></h3>
                     <Info category={"分类1"} author={"张先森"} categoryId={1} authorId={2} num={987}/>
 
                     <div className="desc">

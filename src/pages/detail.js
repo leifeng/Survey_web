@@ -27,14 +27,9 @@ const data = [
             { id: 4, title: '选项4', value: 4 }
         ]
     },
+
     {
-        id: 4, type: 'QA', title: 'adfasdfs@_@asdfsdf?'
-    },
-    {
-        id: 5, type: 'QA', title: '长亭外，古道边，_?'
-    },
-    {
-        id: 6, type: 'fb', title: '天上有多少星星?'
+        id: 4, type: 'QA', title: '天上有多少星星?'
     }
 ]
 
@@ -44,6 +39,9 @@ const data = [
 class Detail extends Component {
     constructor() {
         super();
+        this.state = {
+            preview: false
+        }
         this.onSubmit = this.onSubmit.bind(this);
     }
     onSubmit(e) {
@@ -55,6 +53,16 @@ class Detail extends Component {
                 console.log('error', error, value);
             }
         });
+    }
+
+    componentWillMount() {
+        const id = this.props.params.id;
+        const preview = this.props.params.preview;
+        this.setState({
+            id,
+            preview
+        });
+        console.log(id,preview)
     }
 
     render() {
@@ -74,9 +82,7 @@ class Detail extends Component {
                                 case 'checkbox':
                                     return <CheckBox key={index} form={form} i={index + 1} {...item} />
                                 case 'QA':
-                                    return <QA key={index} form={form} i={index + 1} {...item} />
-                                case 'fb':
-                                    return <FillBlank key={index} form={form} i={index + 1} {...item} />
+                                    return <QA key={index} form={form} i={index + 1} {...item} />                   
                                 default:
                                     return null;
                             }
