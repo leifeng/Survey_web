@@ -31,6 +31,7 @@
 }
 
 .user-center {
+    background-color: #fff;
     .padding {
         padding: 20px 50px;
     }
@@ -155,73 +156,126 @@
     }
     //编辑页
     .survey-edit {
-        width: 980px;
         min-height: 300px;
-        margin: 0 auto;
-        // border: 1px solid #d8d8d8;
-        .question-option {
-            position: fixed;
-            top: 100px;
-            text-align: center;
-            width: 70px;
-            a {
-                display: inline-block;
-                width: 60px;
-                height: 50px;
-                line-height: 50px;
-                text-align: center;
-                border: 1px solid #d8d8d8;
-                border-radius: 4px;
-                margin: 10px 0;
+        overflow: hidden;
+        .question-setting {
+            border: 1px solid #d8d8d8;
+            width: 300px;
+            height: 500px;
+            margin:0 auto;
+            transition: all 1s;
+            .question-setting-title {
                 font-size: 14px;
-                color: #666;
-                &:active {
-                    color: #666;
-                    background-color: #d8d8d8;
-                }
-            }
-        }
-        .question-list {
-            margin-left: 130px;
-        }
-        .question-item {
-            border-bottom: 1px dashed #d8d8d8;
-            padding: 15px 0;
-            .title {
-                font-size: 14px;
-                span {
-                    color: #2db7f5;
-                    margin: 0 10px;
-                }
-                .question-del {
-                    &:hover {
-                        color: red;
-                    }
-                }
-                input {
-                    border: 0;
-                    height: 26px;
-                    line-height: 26px;
-                    text-indent: 10px;
-                    width: 300px;
-                    font-size: 14px;
-                    border-bottom: 1px solid #d8d8d8;
-                }
-            }
-            .add-option {
-                padding: 5px 10px;
+                height: 30px;
+                line-height: 30px;
+                text-indent: 25px;
+                background-color: rgb(28, 34, 46);
+                border-bottom: 1px solid #d8d8d8;
                 color: #fff;
+            }
+            ul {
+                width: 90%;
+                margin: 0 auto;
+                padding: 0;
+                color: #999;
+                li {
+                    list-style: none;
+                    padding: 10px 0;
+                }
+            }
+            a {
+                display: block;
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                color: #fff;
+                text-align: center;
+                border-radius: 4px;
                 background-color: #2db7f5;
+                float: right;
                 &:active {
                     background-color: #2492c4;
                 }
             }
-            ul {
-                margin: 10px 0 0 84px;
+            span {
+                display: block;
+                margin-bottom: 5px;
+            }
+            input[type=text], textarea, select {
+                border: 1px solid #d8d8d8;
+                width: 100%;
+                color: #999;
                 padding: 0;
-                li {
-                    list-style: none;
-                    margin-bottom: 10px;
+            }
+            input[type=text] {
+                height: 30px;
+                text-indent: 5px;
+            }
+            textarea {
+                height: 80px;
+            }
+            select {
+                height: 30px;
+                line-height: 30px;
+            }
+        }
+        .question-create {
+            margin-left: 320px;
+            position: relative;
+            .question-option {
+                position: fixed;
+                top: 100px;
+                text-align: center;
+                width: 70px;
+                a {
+                    display: inline-block;
+                    width: 60px;
+                    height: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    border: 1px solid #d8d8d8;
+                    border-radius: 4px;
+                    margin: 10px 0;
+                    font-size: 14px;
+                    color: #666;
+                    &:active {
+                        color: #666;
+                        background-color: #d8d8d8;
+                    }
+                }
+            }
+            .question-list {
+                margin-left: 80px;
+                min-height: 300px;
+                border: 4px dashed #d8d8d8;
+                border-radius: 6px;
+                padding: 20px 30px;
+                .question-save {
+                    padding-top: 10px;
+                    border-top: 1px solid #d8d8d8;
+                    margin-top: -1px;
+                    overflow: hidden;
+                    a {
+                        width: 100px;
+                        height: 30px;
+                        line-height: 30px;
+                        color: #fff;
+                        text-align: center;
+                        display: block;
+                        background-color: #2db7f5;
+                        border-radius: 4px;
+                        float: right;
+                        &:active {
+                            background-color: #2492c4;
+                        }
+                    }
+                }
+                .question-blank {
+                    margin-top: 50px;
+                    line-height: 2em;
+                    text-align: center;
+                    font-size: 36px;
+                    color: #d8d8d8;
                 }
             }
         }

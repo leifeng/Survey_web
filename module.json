@@ -31,7 +31,8 @@
     "answers": "参与人数",
     "createTime": "创建时间",
     "editTime": "编辑时间",
-    "status": "发布未发布" //1发布 0 未发布
+    "status": "发布未发布", //1发布 0 未发布
+    "ipFilter": "同ip参与一次"
 }
 //问题详情
 {
@@ -102,5 +103,9 @@
     ], //db.getCollection(" hehe").find({"q2":{"$in":[1,3]}})
     "q4": "aaaaaaa",
     "q5": "adfasdfsdfsdf",
-    "useTime:": "1000" //答题时间
+    "useTime:": "1000", //答题所用时间
+    "ip": "192,11,11,11", //ip地址
+    "device": "pc 或 mobile", //设备
+    "browser": "webkit 火狐 Opera ", //浏览器
+    "createTime": "2016-10-25", //提交时间    
 }
