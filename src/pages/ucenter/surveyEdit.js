@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Immutable from 'immutable';
-import {Radio, CheckBox} from '../../components/ucenterForm';
+import {Radio, CheckBox, QA} from '../../components/ucenterForm';
 class SurveyEdit extends Component {
     constructor() {
         super();
         this.state = {
             qs: Immutable.List(),
             setting: Immutable.Map({ title: '', desc: '', categoryId: 0, ipFilter: false, status: 0 }),
-            qsDispaly: false
+            qsDispaly: false,
+            status: 'create'
         }
         this.onClickOption = this.onClickOption.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -16,8 +17,16 @@ class SurveyEdit extends Component {
         this.onChangeOptionValue = this.onChangeOptionValue.bind(this);
         this.onDeleteOption = this.onDeleteOption.bind(this);
         this.onChangeSetting = this.onChangeSetting.bind(this);
-        this.onSaveSurvey=this.onSaveSurvey.bind(this);
+        this.onSaveSurvey = this.onSaveSurvey.bind(this);
     }
+
+    componentWillMount() {
+        const status = this.props.params.status;
+        this.setState({
+            status: status
+        })
+    }
+
     //选择添加题按钮
     onClickOption(e) {
         const target = e.target;
@@ -102,19 +111,25 @@ class SurveyEdit extends Component {
             setting: newState
         })
     }
+    //保存设置
     onSaveSurvey() {
         setTimeout(() => {
-            console.log('保存问卷')
-            this.setState({
-                qsDispaly: true
-            })
+            if (this.state.qsDispaly) {
+                console.log('保存问卷')
+            } else {
+                this.setState({
+                    qsDispaly: true
+                })
+                console.log('创建问卷')
+            }
         }, 2000)
     }
     render() {
-        const {setting,qsDispaly} = this.state;
+        const {setting, qsDispaly, status} = this.state;
+        const style = (status === 'create' && !qsDispaly) ? false : true;
         return (
             <div className="survey-edit">
-                <div className="question-setting" style={{width:qsDispaly?'300px':'100%',float:qsDispaly?'left':'none'}}>
+                <div className="question-setting" style={{ width: style ? '300px' : '99%', float: style ? 'left' : 'none' }}>
                     <div className="question-setting-title">问卷设置</div>
                     <ul onChange={this.onChangeSetting}>
                         <li><span>问卷标题：</span><input type="text" value={setting.get('title') } data-name="title"/></li>
@@ -127,10 +142,10 @@ class SurveyEdit extends Component {
                         </select>
                         </li>
                         <li><label>单ip答题一次: <input type="checkbox" checked={setting.get('ipFilter') ? true : false }   data-name="ipFilter"/></label></li>
-                        <li><a onClick={this.onSaveSurvey}>{qsDispaly?'保存':'开始创建题目'}</a></li>
+                        <li><a onClick={this.onSaveSurvey}>{style ? '保存' : '开始创建题目'}</a></li>
                     </ul>
                 </div>
-                <div className="question-create" style={{display:qsDispaly?'block':'none'}}>
+                <div className="question-create" style={{ visibility: style ? 'visible' : 'hidden', opacity: style ? '1' : '0' }}>
                     <div  className="question-option" onClick={this.onClickOption}>
                         <a data-type="radio">单选题</a>
                         <a data-type="checkbox">多选题</a>
@@ -143,6 +158,8 @@ class SurveyEdit extends Component {
                                     return <Radio  key={index} index={index} {...item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete} onAddOptionCB={this.onAddOption}  onChangeOptionValueCB={this.onChangeOptionValue} onDeleteOptionCB={this.onDeleteOption}/>
                                 case 'checkbox':
                                     return <CheckBox  key={index} index={index} {...item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete} onAddOptionCB={this.onAddOption}  onChangeOptionValueCB={this.onChangeOptionValue} onDeleteOptionCB={this.onDeleteOption}/>
+                                case 'QA':
+                                    return <QA key={index} index={index} {...item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete}/>
                             }
                         }) }
                         {this.state.qs.size > 0 ?

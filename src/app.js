@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route, browserHistory, IndexRoute,IndexRedirect} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute, IndexRedirect} from 'react-router';
 import Main from './pages/main';
 import UserCenter from './pages/ucenter/userCenter';
 const Index = (location, cb) => {
@@ -17,15 +17,24 @@ const Search = (location, cb) => {
         cb(null, require('./pages/search').default);
     })
 };
-
-const SurveyManageList = (location, cb) => {
+const UserCenterIndex = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('./pages/ucenter/surveyManageList').default);
+        cb(null, require('./pages/ucenter/index').default);
     })
 };
-const SurveyEdit=(location, cb) => {
+const SurveyList = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('./pages/ucenter/surveyList').default);
+    })
+};
+const SurveyEdit = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('./pages/ucenter/surveyEdit').default);
+    })
+};
+const SurveyStatistics = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('./pages/ucenter/surveyStatistics').default);
     })
 };
 class Page1 extends Component {
@@ -55,10 +64,16 @@ const App = () => {
                     <Route path="category(/:category)" getComponent={Search}/>
                 </Route>
             </Route>
-            <Route path="/ucenter" component={UserCenter}>
-                <IndexRedirect to="/ucenter/surveyManageList" />
-                <Route path="surveyManageList" getComponent={SurveyManageList}/>
-                <Route path="surveyEdit/:id" getComponent={SurveyEdit}/>
+            <Route path="/ucenter" component={UserCenter} rname="个人中心">
+                <IndexRedirect to="/ucenter/index" />
+                <Route path="index"  getComponent={UserCenterIndex} rname="信息概览"/>
+                <Route path="surveyManage" rname="问卷管理">
+                    <IndexRedirect to="/ucenter/surveyManage/surveyList" />
+                    <Route path="surveyList" getComponent={SurveyList} rname="问卷列表"/>
+                    <Route path="surveyEdit(/:status)(/:id)" getComponent={SurveyEdit} rname="问卷(添加/编辑)"/>
+                    <Route path="surveyStatistics/:id" getComponent={SurveyStatistics} rname="问卷统计"/>
+                </Route>
+
             </Route>
 
             <Route path="*" component={NoMatch}/>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-class SurveyManageList extends Component {
+class SurveyList extends Component {
     render() {
         return (
             <div className="survey-manage-list">
                 <div>
-                    <a className="add">添加</a>
+                    <Link to={"/ucenter/surveyManage/surveyEdit/create"} className="add">添加</Link>
                     <input type="text" placeholder="输入标题搜索"/>
                 </div>
                 <table>
@@ -37,7 +37,7 @@ class SurveyManageList extends Component {
                             <td>999</td>
                             <td>2016-08-10</td>
                             <td>2016-10-11</td>
-                            <td><Link to={"/ucenter/surveyEdit/1"}>编辑</Link><a>统计分析</a><Link to={"/detail/1/true"}>预览</Link><a className="clearData">清空统计</a><a className="delData">删除</a></td>
+                            <td><Link to={"/ucenter/surveyManage/surveyEdit/edit/1"}>编辑</Link><a>统计分析</a><Link to={"/detail/1/true"}>预览</Link><a className="clearData">清空统计</a><a className="delData">删除</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -46,4 +46,4 @@ class SurveyManageList extends Component {
     }
 }
 
-export default SurveyManageList;
+export default SurveyList;
