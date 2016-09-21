@@ -15,7 +15,9 @@ class QA extends Component {
         onClickCB(index);
     }
     render() {
-        const {title, index} = this.props;
+        console.log('qa')
+        const {item, index} = this.props;
+        const title = item.get('title');
         return (
             <div className="question-item question-item-qa">
                 <div className="title">
@@ -25,6 +27,9 @@ class QA extends Component {
                 </div>
             </div>
         )
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        return !this.props.item.equals(nextProps.item)
     }
 }
 

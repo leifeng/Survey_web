@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "cookies-js": "^1.2.2",
+    "echarts": "^3.2.3",
     "immutable": "^3.8.1",
     "rc-form": "^1.0.0",
     "rc-pagination": "^1.5.5",

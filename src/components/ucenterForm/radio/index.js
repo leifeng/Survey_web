@@ -36,7 +36,10 @@ export default class Radio extends Component {
         }
     }
     render() {
-        const {title, list, index} = this.props;
+        console.log('radio', this.props)
+        const {item, index} = this.props;
+        const title = item.get('title');
+        const list = item.get('list');
         return (
             <div className="question-item question-item-radio">
                 <div className="title">
@@ -58,5 +61,8 @@ export default class Radio extends Component {
                 </ul>
             </div>
         )
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        return !this.props.item.equals(nextProps.item)
     }
 }

@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 class UserCenter extends Component {
-    onClick(e) {
-        e.preventDefault();
-    }
     render() {
         return (
             <div className="user-center">
