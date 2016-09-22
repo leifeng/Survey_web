@@ -36,7 +36,10 @@ export default class CheckBox extends Component {
         }
     }
     render() {
-        const {title, list, index} = this.props;
+        console.log('checkbox')
+        const {item, index} = this.props;
+        const title = item.get('title');
+        const list = item.get('list');        
         return (
             <div className="question-item question-item-checkbox">
                 <div className="title">
@@ -58,5 +61,8 @@ export default class CheckBox extends Component {
                 </ul>
             </div>
         )
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        return !this.props.item.equals(nextProps.item)
     }
 }

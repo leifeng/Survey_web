@@ -37,7 +37,7 @@ class SurveyList extends Component {
                             <td>999</td>
                             <td>2016-08-10</td>
                             <td>2016-10-11</td>
-                            <td><Link to={"/ucenter/surveyManage/surveyEdit/edit/1"}>编辑</Link><a>统计分析</a><Link to={"/detail/1/true"}>预览</Link><a className="clearData">清空统计</a><a className="delData">删除</a></td>
+                            <td><Link to={"/ucenter/surveyManage/surveyEdit/edit/1"}>编辑</Link><Link to={"/ucenter/surveyManage/surveyStatistics/1"}>统计分析</Link><Link to={"/detail/1/true"}>预览</Link><a className="clearData">清空统计</a><a className="delData">删除</a></td>
                         </tr>
                     </tbody>
                 </table>

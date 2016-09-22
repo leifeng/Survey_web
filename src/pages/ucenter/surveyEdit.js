@@ -82,7 +82,7 @@ class SurveyEdit extends Component {
         this.setState({
             qs: newState
         });
-        console.log(index, value)
+       // console.log(index, value)
     }
     //删除题选项
     onDeleteOption(index, optIndex) {
@@ -125,6 +125,7 @@ class SurveyEdit extends Component {
         }, 2000)
     }
     render() {
+        console.log('edit')
         const {setting, qsDispaly, status} = this.state;
         const style = (status === 'create' && !qsDispaly) ? false : true;
         return (
@@ -152,14 +153,14 @@ class SurveyEdit extends Component {
                         <a data-type="QA">问答题</a>
                     </div>
                     <div className="question-list">
-                        {this.state.qs.toJS().map((item, index) => {
-                            switch (item.type) {
+                        {this.state.qs.map((item, index) => {
+                            switch (item.get('type')) {
                                 case 'radio':
-                                    return <Radio  key={index} index={index} {...item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete} onAddOptionCB={this.onAddOption}  onChangeOptionValueCB={this.onChangeOptionValue} onDeleteOptionCB={this.onDeleteOption}/>
+                                    return <Radio  key={index} index={index} item={item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete} onAddOptionCB={this.onAddOption}  onChangeOptionValueCB={this.onChangeOptionValue} onDeleteOptionCB={this.onDeleteOption}/>
                                 case 'checkbox':
-                                    return <CheckBox  key={index} index={index} {...item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete} onAddOptionCB={this.onAddOption}  onChangeOptionValueCB={this.onChangeOptionValue} onDeleteOptionCB={this.onDeleteOption}/>
+                                    return <CheckBox  key={index} index={index} item={item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete} onAddOptionCB={this.onAddOption}  onChangeOptionValueCB={this.onChangeOptionValue} onDeleteOptionCB={this.onDeleteOption}/>
                                 case 'QA':
-                                    return <QA key={index} index={index} {...item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete}/>
+                                    return <QA key={index} index={index} item={item} onChangeCb={this.onChangeTitle} onClickCB={this.onDelete}/>
                             }
                         }) }
                         {this.state.qs.size > 0 ?
