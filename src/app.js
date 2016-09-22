@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Router, Route, browserHistory, IndexRoute, IndexRedirect} from 'react-router';
 import Main from './pages/main';
-import UserCenter from './pages/ucenter/userCenter';
+// import UserCenter from './pages/ucenter/userCenter';
 const Index = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('./pages/index').default);
@@ -15,6 +15,11 @@ const Detail = (location, cb) => {
 const Search = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('./pages/search').default);
+    })
+};
+const UserCenter = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('./pages/ucenter/userCenter').default);
     })
 };
 const UserCenterIndex = (location, cb) => {
@@ -64,10 +69,12 @@ const App = () => {
                     <Route path="category(/:category)" getComponent={Search}/>
                 </Route>
             </Route>
-            <Route path="/ucenter" component={UserCenter} rname="个人中心">
+            <Route path="/ucenter" getComponent={UserCenter} rname="个人中心">
                 <IndexRedirect to="/ucenter/index" />
                 <Route path="index"  getComponent={UserCenterIndex} rname="信息概览"/>
-                <Route path="surveyManage" getComponent={SurveyList} rname="问卷管理">
+                <Route path="surveyManage"  rname="问卷管理">
+                    <IndexRedirect to="/ucenter/surveyManage/index" />
+                    <Route path="index" getComponent={SurveyList} />
                     <Route path="surveyEdit(/:status)(/:id)" getComponent={SurveyEdit} rname="问卷(添加/编辑)"/>
                     <Route path="surveyStatistics/:id" getComponent={SurveyStatistics} rname="问卷统计"/>
                 </Route>
