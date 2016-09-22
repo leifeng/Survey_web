@@ -67,9 +67,7 @@ const App = () => {
             <Route path="/ucenter" component={UserCenter} rname="个人中心">
                 <IndexRedirect to="/ucenter/index" />
                 <Route path="index"  getComponent={UserCenterIndex} rname="信息概览"/>
-                <Route path="surveyManage" rname="问卷管理">
-                    <IndexRedirect to="/ucenter/surveyManage/surveyList" />
-                    <Route path="surveyList" getComponent={SurveyList} rname="问卷列表"/>
+                <Route path="surveyManage" getComponent={SurveyList} rname="问卷管理">
                     <Route path="surveyEdit(/:status)(/:id)" getComponent={SurveyEdit} rname="问卷(添加/编辑)"/>
                     <Route path="surveyStatistics/:id" getComponent={SurveyStatistics} rname="问卷统计"/>
                 </Route>

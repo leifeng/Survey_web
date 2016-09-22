@@ -10,6 +10,7 @@ class UserCenter extends Component {
                 <div className="user-center-header">
                     <span className="title">用户中心</span>
                     <div className="user-center-menu">
+                        <Link to="/ucenter/index" activeClassName="active">问卷概览</Link>
                         <Link to="/ucenter/surveyManage" activeClassName="active">问卷管理</Link>
                         <Link to="/ucenter/info" activeClassName="active">个人资料</Link>
                     </div>
@@ -18,7 +19,7 @@ class UserCenter extends Component {
                 <div className="user-center-subMenu" >
                     当前位置：
                     {this.props.routes.map((item, index) => {
-                        return <span key={index}><a>{item.rname}</a>{index===this.props.routes.length-1?'':<a className="arrow">></a>}</span>
+                        return <span key={index}><a>{item.rname}</a>{index === this.props.routes.length - 1 ? '' : <a className="arrow">></a>}</span>
                     }) }
 
                 </div>
